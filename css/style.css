@@ -243,26 +243,145 @@ figure {
   color: #4d4d4d;
 }
 
+/*햄버거 버튼*/
+#slide-open {
+  display: none;
+}
+
+.slide-open {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.burgur {
+  right: 16px;
+  top: 34px;
+  position: fixed;
+  width: 38px;
+  height: 2px;
+  background: #3677f0;
+}
+
+.burgur .top-line {
+  width: 38px;
+  height: 2px;
+  background-color: #3677f0;
+  bottom: -14px;
+  content: "";
+  position: absolute;
+  right: 0;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.burgur .bot-line {
+  width: 38px;
+  height: 2px;
+  background-color: #3677f0;
+  top: -14px;
+  content: "";
+  position: absolute;
+  right: 0;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.burgur.on {
+  width: 0;
+}
+
+.burgur.on .bot-line {
+  -webkit-transform: translateY(14px) rotate(135deg);
+  transform: translateY(14px) rotate(135deg);
+}
+
+.burgur.on .top-line {
+  -webkit-transform: translateY(-14px) rotate(-135deg);
+  transform: translateY(-14px) rotate(-135deg);
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  padding-top: 100px;
+  width: 100%;
+  position: fixed;
+  right: -100%;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: right 0.3s;
+  -moz-transition: right 0.3s;
+  -ms-transition: right 0.3s;
+  -o-transition: right 0.3s;
+  transition: right 0.3s;
+  background-color: #ffffffe7;
+  z-index: 9990;
+}
+
+.slide-title {
+  width: 100%;
+  height: 100px;
+  font-size: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.slide.on {
+  right: 0;
+}
+
+.slide ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slide ul li {
+  width: 100%;
+  text-align: center;
+  font-size: 130%;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.slide ul li a {
+  padding: 30px;
+  display: block;
+}
+
+.slide ul li a:hover {
+  transition: 0.5s all;
+  background-color: #3677f0;
+  color: #fff;
+}
+
+/*햄버거 버튼 끝*/
+
 .mobile_enter {
   display: none;
 }
 
-@media screen and (max-width: 425px) {
-  .mobile_enter {
+@media screen and (max-width: 525px) {
+  #gnb {
+    display: none;
+  }
+
+  #slide-open {
     display: block;
   }
 
-  #gnb {
-    flex-wrap: wrap;
+  .slide {
+    display: block;
   }
 
-  #gnb li {
-    width: 50%;
-    text-align: center;
-  }
-
-  #gnb li a {
-    padding: 15px 0px;
+  .mobile_enter {
+    display: block;
   }
 }
 
@@ -283,7 +402,7 @@ figure {
   font-size: 140%;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 525px) {
   .main_title {
     font-size: 360%;
     color: #3677f0;
